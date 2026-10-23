@@ -4,10 +4,11 @@
   "country": "Japan",
   "latitude": 34.318,
   "longitude": 139.215,
-  "description": "Volcanic CO\u2082 seep system used to study ecological responses to long-term elevated CO\u2082.",
-  "environment": "Elevated CO\u2082 natural analogue",
+  "description": "Volcanic CO₂ seep system used to study ecological responses to long-term elevated CO₂.",
+  "environment": "Elevated CO₂ natural analogue",
   "institution_ids": [],
   "image": "",
   "website": "",
-  "published": true
+  "published": true,
+  "category": "Shallow cold hydrothermal CO₂ vents"
 }

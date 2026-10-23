@@ -7,7 +7,6 @@ backend:
   base_url: https://icona-decap-auth.ben-harvey.workers.dev
   auth_endpoint: auth
   open_authoring: true
-
 publish_mode: editorial_workflow
 media_folder: public/uploads
 public_folder: /icona/uploads
@@ -46,7 +45,27 @@ collections:
       - { label: Latitude, name: latitude, widget: number, value_type: float }
       - { label: Longitude, name: longitude, widget: number, value_type: float }
       - { label: Description, name: description, widget: text }
-      - { label: Environment, name: environment, widget: string }
+      - label: Site category
+        name: category
+        widget: select
+        required: true
+        options:
+          - "Shallow cold hydrothermal CO₂ vents"
+          - "Shallow warm hydrothermal CO₂ vents"
+          - "Groundwater discharge"
+          - "Deep hydrothermal CO₂ vents"
+          - "Upwelling areas"
+          - "Semi-enclosed lagoons"
+          - "Warming hotspots"
+          - "Naturally saline & hot seas"
+          - "Tide pools"
+          - "Macrotidal systems"
+          - "Fjords"
+          - "Inverse estuaries"
+          - "Shallow estuaries"
+          - "Mangroves"
+          - "Biologically driven variable ecosystems"
+      - { label: Additional environmental description, name: environment, widget: string, required: false }
       - { label: Linked institution IDs, name: institution_ids, widget: list, required: false, hint: 'Enter institution slugs (e.g. university-of-tsukuba)' }
       - { label: Image, name: image, widget: image, required: false }
       - { label: External website, name: website, widget: string, required: false }

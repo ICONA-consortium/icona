@@ -4,10 +4,11 @@
   "country": "Italy",
   "latitude": 40.731,
   "longitude": 13.952,
-  "description": "Volcanic CO\u2082 seep research area in the Mediterranean.",
-  "environment": "Elevated CO\u2082 natural analogue",
+  "description": "Volcanic CO₂ seep research area in the Mediterranean.",
+  "environment": "Elevated CO₂ natural analogue",
   "institution_ids": [],
   "image": "",
   "website": "",
-  "published": true
+  "published": true,
+  "category": "Shallow cold hydrothermal CO₂ vents"
 }
