@@ -5,7 +5,7 @@ backend:
   repo: icona-consortium/icona
   branch: main
   base_url: https://icona-decap-auth.ben-harvey.workers.dev
-  auth_endpoint: /auth
+  auth_endpoint: auth
   open_authoring: true
 
 publish_mode: editorial_workflow
