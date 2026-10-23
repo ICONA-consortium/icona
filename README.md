@@ -9,22 +9,22 @@ A starter website for the **International CO₂ Natural Analogues Network (ICONA
 1. Install [Node.js LTS](https://nodejs.org/).
 2. Open a terminal in the unzipped `icona-starter` folder.
 3. Run `npm install` and then `npm run dev`.
-4. Open the local address shown by Astro (normally `http://localhost:4321/icona-website/`).
+4. Open the local address shown by Astro (normally `http://localhost:4321/icona/`).
 
 To create the production build run `npm run build`. The static website is generated in `dist/`.
 
 ## 2. Publish to GitHub Pages
 
-1. Create a **GitHub organisation** for ICONA, if appropriate, and a **public** repository named `icona-website` under that account.
+1. Use your existing GitHub organisation **`icona-consortium`** and repository **`icona`**: https://github.com/icona-consortium/icona. Ensure the repository is public for GitHub Pages on the free plan.
 2. Upload **all contents** of this project to the repository's root, including the hidden `.github` folder. Easiest: clone the new repository locally, copy the contents into it, commit and push. Or use GitHub's **Add file → Upload files** (check the `.github` workflow is included).
-3. Change `YOUR-ORG` in `public/admin/config.yml` to the actual GitHub organisation/username. Commit the change.
+3. The CMS repository is already configured as `icona-consortium/icona`. No name replacement is needed.
 4. In the repository go to **Settings → Pages → Build and deployment → Source → GitHub Actions**.
-5. Open the **Actions** tab, and verify that `Deploy ICONA website` finishes successfully. Website URL: `https://YOUR-ORG.github.io/icona-website/`.
-6. The workflow uses environment variables to set the public site and `/icona-website` base path. **If you choose a different repository name**, update the `repo` in CMS config and verify deployed URL. A special root domain repo (`YOUR-ORG.github.io`) or custom domain needs different `BASE_PATH`/`SITE_URL` values in `.github/workflows/deploy.yml`.
+5. Open the **Actions** tab, and verify that `Deploy ICONA website` finishes successfully. Website URL: `https://icona-consortium.github.io/icona/`.
+6. The workflow explicitly runs `npm install` (no package-lock.json required) and then `npm run build`, with npm caching disabled. It uses environment variables to set the public site and `/icona` base path. **If you choose a different repository name**, update the `repo` in CMS config and verify deployed URL. A special root domain repo (`icona-consortium.github.io`) or custom domain needs different `BASE_PATH`/`SITE_URL` values in `.github/workflows/deploy.yml`.
 
 ## 3. Enable Decap CMS (separate step)
 
-The CMS editor UI is at `https://YOUR-ORG.github.io/icona-website/admin/` after publishing. **It cannot log in until GitHub authentication is configured.** GitHub Pages does *not* provide an OAuth backend. Do **not** paste GitHub client secrets into the repository or CMS config.
+The CMS editor UI is at `https://icona-consortium.github.io/icona/admin/` after publishing. **It cannot log in until GitHub authentication is configured.** GitHub Pages does *not* provide an OAuth backend. Do **not** paste GitHub client secrets into the repository or CMS config.
 
 - Choose and deploy a [Decap-compatible GitHub OAuth backend](https://decapcms.org/docs/backends-overview/) (for example the documented Cloudflare Worker proxy), OR a compatible hosted backend.
 - Create a GitHub OAuth App with the callback required by that service, then set `backend.base_url` and possibly `backend.auth_endpoint` in `public/admin/config.yml` to the service's URL.
@@ -33,7 +33,7 @@ The CMS editor UI is at `https://YOUR-ORG.github.io/icona-website/admin/` after 
 
 **GitHub branch protection and publishing:** review contributor roles carefully; direct edits to `main` outside the CMS should be limited to maintainers. A UI-level editorial workflow alone is not a complete permissions system.
 
-**IMPORTANT:** Media images uploaded through Decap use `public_folder: /uploads` and absolute paths, which work at the domain root but **not necessarily for a project Pages URL** (`/icona-website/`). Before using image uploads in production, change `public_folder` to `/icona-website/uploads` for a project repo, or adapt the renderer to prepend the base path. URL-specific setup is deliberate rather than guessed.
+**IMPORTANT:** Decap media URLs are configured for the `/icona/` GitHub Pages path using `public_folder: /icona/uploads`. Test image uploads after CMS login is enabled. If you move to a custom domain, update this path.
 
 ## 4. How members update content
 

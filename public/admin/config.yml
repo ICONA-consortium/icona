@@ -1,4 +1,4 @@
-# Replace YOUR-ORG with the GitHub account or organisation that owns the repository.
+# ICONA repository: https://github.com/icona-consortium/icona
 # IMPORTANT: GitHub authentication requires an external OAuth service. See README.md.
 backend:
   name: github
@@ -8,7 +8,7 @@ backend:
   # auth_endpoint: auth
 publish_mode: editorial_workflow
 media_folder: public/uploads
-public_folder: /uploads
+public_folder: /icona/uploads
 slug:
   encoding: ascii
   clean_accents: true
