@@ -1,0 +1,5 @@
+---
+import Base from '../../layouts/Base.astro';import {news,pathFor} from '../../data/index.js';
+export function getStaticPaths(){return news.filter(n=>n.published).map(item=>({params:{slug:item.slug},props:{item}}));}const {item}=Astro.props;
+---
+<Base title={item.title}><section class="page-head"><div class="container"><div class="eyebrow">ICONA news · {item.date}</div><h1>{item.title}</h1><p>{item.summary}</p></div></section><section class="section"><div class="container text-width"><a class="back" href={pathFor('news/')}>← Back to news</a>{item.image && <img src={item.image} alt="News illustration" style="width:100%;border-radius:8px"/>}{item.body.split(/\n\n+/).map(p=><p>{p}</p>)}</div></section></Base>

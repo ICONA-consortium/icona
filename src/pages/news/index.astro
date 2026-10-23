@@ -1,0 +1,4 @@
+---
+import Base from '../../layouts/Base.astro';import {news,pathFor} from '../../data/index.js';
+---
+<Base title="News"><section class="page-head"><div class="container"><div class="eyebrow">From our community</div><h1>News & updates</h1><p>Workshops, publications, fieldwork and announcements from ICONA members.</p></div></section><section class="section"><div class="container text-width">{news.filter(n=>n.published).map(n=><article class="list-card"><time datetime={n.date}>{n.date}</time><h3><a href={pathFor('news/'+n.slug+'/')}>{n.title}</a></h3><p>{n.summary}</p></article>)}</div></section></Base>

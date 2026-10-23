@@ -1,0 +1,14 @@
+{
+  "name": "University of Tsukuba",
+  "slug": "university-of-tsukuba",
+  "country": "Japan",
+  "city": "Shimoda",
+  "latitude": 34.667,
+  "longitude": 138.946,
+  "description": "Shimoda Marine Research Center; example institutional record.",
+  "site_ids": [
+    "shikine-jima"
+  ],
+  "website": "https://www.shimoda.tsukuba.ac.jp/",
+  "published": true
+}
