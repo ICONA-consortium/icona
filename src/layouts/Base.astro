@@ -4,6 +4,40 @@ import { pathFor } from '../data/index.js';
 const { title='ICONA', description='International Consortium for Natural Analogues' } = Astro.props;
 const links = [['Home',''],['Network','network/'],['News','news/'],['Publications','publications/'],['About','about/']];
 ---
-<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="description" content={description}/><title>{title} | ICONA</title><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" /></head><body>
-<header class="site-header"><div class="container nav"><a class="brand" href={pathFor('')} aria-label="ICONA home"><img class="brand-logo" src={pathFor('images/icona-logo-mark.png')} alt="ICONA"/><span class="brand-name">ICONA<small>International Consortium for Natural Analogues</small></span></a><nav aria-label="Main navigation">{links.map(([text,href])=><a href={pathFor(href)} class={Astro.url.pathname===pathFor(href)?'active':''}>{text}</a>)}</nav><a class="nav-join" href={pathFor('about/')}>Get in touch <span aria-hidden="true">↗</span></a></div></header>
-<main><slot /></main><footer><div class="container footer-inner"><div><img class="footer-logo" src={pathFor('images/icona-logo.png')} alt="ICONA — International Consortium for Natural Analogues"/><small>A collaborative research consortium studying marine environmental change.</small></div><div><a href={pathFor('about/')}>About & contact</a><a href={pathFor('publications/')}>Publications</a><a href={pathFor('admin/')}>Member editor</a></div></div><div class="container copyright">© {new Date().getFullYear()} ICONA · Prototype website</div></footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content={description}/>
+<title>{title} | ICONA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+<header class="site-header">
+<div class="container nav">
+<a class="brand" href={pathFor('')} aria-label="ICONA home"><img class="brand-logo" src={pathFor('images/icona-logo-mark.png')} alt="ICONA"/><span class="brand-name">ICONA<small>International Consortium for Natural Analogues</small></span></a>
+<nav aria-label="Main navigation">{links.map(([text,href])=><a href={pathFor(href)} class={Astro.url.pathname===pathFor(href)?'active':''}>{text}</a>)}</nav>
+<a class="nav-join" href={pathFor('about/')}>Get in touch <span aria-hidden="true">↗</span></a></div></header>
+<main>
+<slot />
+</main>
+<footer>
+<div class="container footer-inner">
+<div>
+<img class="footer-logo" src={pathFor('images/icona-logo.png')} alt="ICONA — International Consortium for Natural Analogues"/><small>A collaborative research consortium studying marine environmental change.
+</small>
+</div>
+<div>
+<a href={pathFor('about/')}>About & contact</a>
+<a href={pathFor('publications/')}>Publications</a>
+<a href={pathFor('admin/')}>Member editor</a>
+</div>
+</div>
+<div class="container copyright">© {new Date().getFullYear()} ICONA · Website
+</div>
+</footer>
+</body>
+</html>
